@@ -6,29 +6,32 @@
 
 :root {
   --preto: #111111;
-  --preto-2: #191919;
   --creme: #f3eee5;
   --texto: #f8f5ef;
   --texto-escuro: #222222;
   --dourado: #d7ad72;
 }
 
-html,
-body {
-  width: 100%;
-  min-height: 100%;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  width: 100%;
+  min-height: 100%;
   background: var(--preto);
   color: var(--texto);
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
 }
 
-/* Cada página ocupa praticamente a tela inteira do celular */
+/* =========================
+   PÁGINAS
+========================= */
+
 .page {
   position: relative;
+
   width: 100%;
   min-height: 100svh;
 
@@ -36,15 +39,14 @@ body {
   align-items: center;
   justify-content: center;
 
-  padding: 60px 28px;
+  padding: 70px 28px;
 
   overflow: hidden;
 }
 
-/* FUNDOS */
-
 .dark {
   background: var(--preto);
+  color: var(--texto);
 }
 
 .light {
@@ -52,11 +54,9 @@ body {
   color: var(--texto-escuro);
 }
 
-/* CONTEÚDO */
-
 .content {
   position: relative;
-  z-index: 3;
+  z-index: 5;
 
   width: 100%;
   max-width: 600px;
@@ -67,49 +67,132 @@ body {
   text-align: center;
 }
 
-/* FOTO */
+/* =========================
+   FOTOS
+========================= */
 
 .photo {
   position: absolute;
+
   inset: 0;
 
-  background-image: url("01-capa.jpg");
+  z-index: 0;
+
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+}
 
-  z-index: 0;
+.cover .photo {
+  background-image: url("01-capa.jpg");
 }
 
 .final .photo {
   background-image: url("13-final.jpg");
 }
 
-/* ESCURECER FOTO */
+/* Fotos das páginas */
+
+.photo-page {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.photo-page::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Página 3 */
+
+.photo-dor::before {
+  background-image: url("03-dor.jpg");
+}
+
+/* Página 5 */
+
+.photo-voce::before {
+  background-image: url("05-voce-me-pediu.jpg");
+}
+
+/* Página 8 */
+
+.photo-outras::before {
+  background-image: url("08-outras-mulheres.jpg");
+}
+
+/* Página 9 */
+
+.photo-confianca::before {
+  background-image: url("09-confianca.jpg");
+}
+
+/* Página 12 */
+
+.photo-escolha::before {
+  background-image: url("12-escolho-construir.jpg");
+}
+
+/* =========================
+   ESCURECER FOTOS
+========================= */
 
 .overlay {
   position: absolute;
+
   inset: 0;
+
+  z-index: 2;
 
   background:
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.25),
-      rgba(0, 0, 0, 0.72)
+      rgba(0, 0, 0, 0.20),
+      rgba(0, 0, 0, 0.78)
     );
-
-  z-index: 1;
 }
 
-/* TEXTOS */
+.photo-page::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.30),
+      rgba(0, 0, 0, 0.78)
+    );
+}
+
+/* =========================
+   TEXTOS
+========================= */
 
 .eyebrow {
   font-size: 10px;
+
   letter-spacing: 3px;
+
   line-height: 1.5;
 
   text-transform: uppercase;
 
-  opacity: 0.65;
+  opacity: 0.70;
 
   margin-bottom: 20px;
 }
@@ -142,10 +225,18 @@ p {
 }
 
 .dark p {
-  color: rgba(255, 255, 255, 0.86);
+  color: rgba(255, 255, 255, 0.88);
 }
 
-/* NÚMERO */
+/* Texto das páginas com foto */
+
+.photo-page p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* =========================
+   NÚMERO DA PÁGINA
+========================= */
 
 .number {
   position: absolute;
@@ -157,23 +248,28 @@ p {
 
   letter-spacing: 3px;
 
-  opacity: 0.4;
+  opacity: 0.45;
 }
 
-/* LINHA */
+/* =========================
+   LINHA
+========================= */
 
 .line {
   width: 55px;
+
   height: 1px;
 
   background: currentColor;
 
-  opacity: 0.4;
+  opacity: 0.45;
 
   margin: 28px 0 32px;
 }
 
-/* CORAÇÃO */
+/* =========================
+   CORAÇÃO
+========================= */
 
 .heart {
   color: var(--dourado);
@@ -187,7 +283,9 @@ p {
   margin: 20px 0;
 }
 
-/* DESTAQUES */
+/* =========================
+   DESTAQUES
+========================= */
 
 .highlight {
   color: var(--dourado) !important;
@@ -205,10 +303,12 @@ p {
   color: #806544 !important;
 }
 
-/* FRASE DESTACADA */
+/* =========================
+   FRASE DESTACADA
+========================= */
 
 .quote {
-  border: 1px solid rgba(180, 160, 130, 0.35);
+  border: 1px solid rgba(180, 160, 130, 0.40);
 
   padding: 22px 20px;
 
@@ -221,7 +321,9 @@ p {
   line-height: 1.3;
 }
 
-/* LISTA */
+/* =========================
+   LISTA
+========================= */
 
 ul {
   list-style: none;
@@ -251,7 +353,9 @@ li::before {
   color: var(--dourado);
 }
 
-/* CARTÕES */
+/* =========================
+   CARTÕES
+========================= */
 
 .cards {
   display: grid;
@@ -266,7 +370,7 @@ li::before {
 .cards div {
   min-height: 105px;
 
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 
   padding: 16px;
 
@@ -277,6 +381,8 @@ li::before {
   justify-content: space-between;
 
   font-size: 26px;
+
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .cards span {
@@ -284,10 +390,12 @@ li::before {
 
   line-height: 1.4;
 
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
-/* FRASE GRANDE */
+/* =========================
+   FRASE GRANDE
+========================= */
 
 .big-quote {
   color: var(--dourado);
@@ -301,18 +409,20 @@ li::before {
   margin-top: 30px;
 }
 
-/* BOTÃO */
+/* =========================
+   BOTÃO
+========================= */
 
 button {
   margin-top: 20px;
 
   padding: 15px 24px;
 
-  background: transparent;
+  background: rgba(0, 0, 0, 0.20);
 
   color: white;
 
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.60);
 
   font-family: "Montserrat", sans-serif;
 
@@ -321,9 +431,17 @@ button {
   letter-spacing: 2px;
 
   cursor: pointer;
+
+  transition: 0.3s ease;
 }
 
-/* ÚLTIMA PÁGINA */
+button:active {
+  transform: scale(0.96);
+}
+
+/* =========================
+   FINAL
+========================= */
 
 .final .content {
   display: flex;
@@ -342,7 +460,9 @@ button {
   margin-right: auto;
 }
 
-/* BARRA DE PROGRESSO */
+/* =========================
+   BARRA DE PROGRESSO
+========================= */
 
 .progress {
   position: fixed;
@@ -351,6 +471,7 @@ button {
   left: 0;
 
   width: 0;
+
   height: 2px;
 
   background: var(--dourado);
@@ -360,7 +481,31 @@ button {
   transition: width 0.2s ease;
 }
 
-/* CELULARES PEQUENOS */
+/* =========================
+   ANIMAÇÃO
+========================= */
+
+.content {
+  animation: aparecer 1s ease both;
+}
+
+@keyframes aparecer {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* =========================
+   CELULARES PEQUENOS
+========================= */
 
 @media (max-width: 360px) {
 
@@ -386,13 +531,15 @@ button {
 
 }
 
-/* CELULARES MAIS ALTOS */
+/* =========================
+   CELULARES ALTOS
+========================= */
 
 @media (min-height: 800px) {
 
   .page {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 75px;
+    padding-bottom: 75px;
   }
 
-}
+  }
