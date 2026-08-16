@@ -239,16 +239,7 @@ p {
 ========================= */
 
 .number {
-  position: absolute;
-
-  top: -30px;
-  right: 0;
-
-  font-size: 10px;
-
-  letter-spacing: 3px;
-
-  opacity: 0.45;
+  display: none;
 }
 
 /* =========================
