@@ -1,0 +1,398 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --preto: #111111;
+  --preto-2: #191919;
+  --creme: #f3eee5;
+  --texto: #f8f5ef;
+  --texto-escuro: #222222;
+  --dourado: #d7ad72;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: var(--preto);
+  color: var(--texto);
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Cada página ocupa praticamente a tela inteira do celular */
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px 28px;
+
+  overflow: hidden;
+}
+
+/* FUNDOS */
+
+.dark {
+  background: var(--preto);
+}
+
+.light {
+  background: var(--creme);
+  color: var(--texto-escuro);
+}
+
+/* CONTEÚDO */
+
+.content {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  max-width: 600px;
+}
+
+.cover .content,
+.final .content {
+  text-align: center;
+}
+
+/* FOTO */
+
+.photo {
+  position: absolute;
+  inset: 0;
+
+  background-image: url("images/01-capa.jpg");
+  background-size: cover;
+  background-position: center;
+
+  z-index: 0;
+}
+
+.final .photo {
+  background-image: url("images/13-final.jpg");
+}
+
+/* ESCURECER FOTO */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.72)
+    );
+
+  z-index: 1;
+}
+
+/* TEXTOS */
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  line-height: 1.5;
+
+  text-transform: uppercase;
+
+  opacity: 0.65;
+
+  margin-bottom: 20px;
+}
+
+h1,
+h2 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-weight: 500;
+
+  letter-spacing: -1px;
+
+  line-height: 0.95;
+}
+
+h1 {
+  font-size: clamp(52px, 15vw, 82px);
+}
+
+h2 {
+  font-size: clamp(44px, 13vw, 70px);
+}
+
+p {
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  margin-bottom: 16px;
+}
+
+.dark p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+/* NÚMERO */
+
+.number {
+  position: absolute;
+
+  top: -30px;
+  right: 0;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  opacity: 0.4;
+}
+
+/* LINHA */
+
+.line {
+  width: 55px;
+  height: 1px;
+
+  background: currentColor;
+
+  opacity: 0.4;
+
+  margin: 28px 0 32px;
+}
+
+/* CORAÇÃO */
+
+.heart {
+  color: var(--dourado);
+
+  font-family: serif;
+
+  font-size: 55px;
+
+  line-height: 1;
+
+  margin: 20px 0;
+}
+
+/* DESTAQUES */
+
+.highlight {
+  color: var(--dourado) !important;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 25px !important;
+
+  line-height: 1.25 !important;
+
+  margin-top: 28px;
+}
+
+.dark-highlight {
+  color: #806544 !important;
+}
+
+/* FRASE DESTACADA */
+
+.quote {
+  border: 1px solid rgba(180, 160, 130, 0.35);
+
+  padding: 22px 20px;
+
+  margin-top: 30px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 25px;
+
+  line-height: 1.3;
+}
+
+/* LISTA */
+
+ul {
+  list-style: none;
+
+  margin-top: 25px;
+}
+
+li {
+  position: relative;
+
+  padding-left: 25px;
+
+  margin-bottom: 16px;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+li::before {
+  content: "✓";
+
+  position: absolute;
+
+  left: 0;
+
+  color: var(--dourado);
+}
+
+/* CARTÕES */
+
+.cards {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+.cards div {
+  min-height: 105px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  padding: 16px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  font-size: 26px;
+}
+
+.cards span {
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  opacity: 0.8;
+}
+
+/* FRASE GRANDE */
+
+.big-quote {
+  color: var(--dourado);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(40px, 12vw, 65px);
+
+  line-height: 0.95;
+
+  margin-top: 30px;
+}
+
+/* BOTÃO */
+
+button {
+  margin-top: 20px;
+
+  padding: 15px 24px;
+
+  background: transparent;
+
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+}
+
+/* ÚLTIMA PÁGINA */
+
+.final .content {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.final h2 {
+  font-size: clamp(65px, 19vw, 100px);
+}
+
+.final .line {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* BARRA DE PROGRESSO */
+
+.progress {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--dourado);
+
+  z-index: 100;
+
+  transition: width 0.2s ease;
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 360px) {
+
+  .page {
+    padding: 50px 22px;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .quote {
+    font-size: 22px;
+  }
+
+}
+
+/* CELULARES MAIS ALTOS */
+
+@media (min-height: 800px) {
+
+  .page {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+}
