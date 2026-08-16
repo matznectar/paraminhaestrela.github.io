@@ -73,7 +73,7 @@ body {
   position: absolute;
   inset: 0;
 
-  background-image: url("images/01-capa.jpg");
+  background-image: url("01-capa.jpg");
   background-size: cover;
   background-position: center;
 
@@ -81,7 +81,7 @@ body {
 }
 
 .final .photo {
-  background-image: url("images/13-final.jpg");
+  background-image: url("13-final.jpg");
 }
 
 /* ESCURECER FOTO */
