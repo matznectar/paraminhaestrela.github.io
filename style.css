@@ -143,6 +143,10 @@ body {
   background-image: url("12-escolho-construir.jpg");
 }
 
+.final .photo {
+  background-image: url("foto-finalização.jpg");
+}
+
 /* =========================
    ESCURECER FOTOS
 ========================= */
